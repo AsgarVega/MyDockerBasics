@@ -1,19 +1,21 @@
 services:
 #postgres ultra basico
   postgres:
-    image: postgres
+    image: postgres:9.5
     restart: always
     environment:
       POSTGRES_PASSWORD: example
-#administrador web multiproposito
-  adminer: 
-    image: adminer
-    restart: always
     ports:
-      - 8080:8080
-    depends_on:
-      - postgres
-#clasico de postgres, que se supene que ya hay nueva version
+      - 3004:5432
+#administrador web multiproposito
+  # adminer: 
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
+  #   depends_on:
+  #     - postgres
+#clasico de postgres, que se supone que ya hay nueva version
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
@@ -22,7 +24,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: root
     ports:
-      - 80:80
-    depends_on:
-      - postgres
+      - 3005:80
+    # depends_on:
+    #   - postgres
   
