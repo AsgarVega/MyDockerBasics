@@ -1,0 +1,9 @@
+services:
+#base de java
+  base:
+    image: openjdk
+    # command: bash
+    volumes:
+      - './tutorial:/root/tutorial'
+    #lo mantiene vivo
+    tty: true

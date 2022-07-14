@@ -1,0 +1,9 @@
+services:
+#base de python
+  base:
+    image: python:3.9
+    # command: bash
+    volumes:
+      - './tutorial:/root/tutorial'
+    #lo mantiene vivo
+    tty: true
