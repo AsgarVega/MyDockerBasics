@@ -4,5 +4,7 @@ services:
     ports:
       - '8888:8888'
     image: continuumio/anaconda3
-    command: /bin/bash -c "conda install jupyter -y --quiet && mkdir -p /opt/notebooks && jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 -0-no-browser --allow-root"
+    volumes:
+      - ./notebooks:/opt/notebooks
+    command: /bin/bash -c "apt upgrade && apt install ffmpeg libsm6 libxext6 -y && conda install jupyter -y --quiet && mkdir -p /opt/notebooks && jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
     tty: true
