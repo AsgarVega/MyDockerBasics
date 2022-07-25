@@ -6,5 +6,5 @@ services:
     image: continuumio/anaconda3
     volumes:
       - ./notebooks:/opt/notebooks
-    command: /bin/bash -c "apt upgrade && apt install ffmpeg libsm6 libxext6 -y && conda install jupyter -y --quiet && mkdir -p /opt/notebooks && jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
+    command: /bin/bash -c "apt update && apt install ffmpeg libsm6 libxext6 -y && conda install jupyter -y --quiet && mkdir -p /opt/notebooks && jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root"
     tty: true
