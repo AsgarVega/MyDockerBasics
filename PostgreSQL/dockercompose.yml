@@ -4,27 +4,18 @@ services:
     image: postgres:9.5
     restart: always
     environment:
-      POSTGRES_PASSWORD: example
+      POSTGRES_PASSWORD: contraBD
     ports:
       - 3004:5432
-#administrador web multiproposito
-  # adminer: 
-  #   image: adminer
-  #   restart: always
-  #   ports:
-  #     - 8080:8080
-  #   depends_on:
-  #     - postgres
-#clasico de postgres, que se supone que ya hay nueva version
+#pgadmin4
   pgadmin:
     container_name: pgadmin4_container
     image: dpage/pgadmin4
     restart: always
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
-      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_DEFAULT_PASSWORD: contraManejador
     ports:
       - 3005:80
-    # depends_on:
-    #   - postgres
-  
+    depends_on:
+      - postgres
